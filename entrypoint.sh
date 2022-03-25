@@ -2,7 +2,9 @@
 
 KICAD_VERSION=$1
 
-echo "Creating docker image with alpine version: $KICAD_VERSION"
+echo "Creating docker image with KiCad version: $KICAD_VERSION"
+
+ls -la
 
 if [ "$KICAD_VERSION" == "5" ]; then
    cd k5
