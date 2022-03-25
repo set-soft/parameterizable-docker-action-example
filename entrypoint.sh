@@ -77,7 +77,7 @@ docker run --workdir /github/workspace \
            -e ACTIONS_CACHE_URL \
            -e GITHUB_ACTIONS=true \
            -e CI=true \
-           -v /Generated:/Generated \
+           --volume="/Generated:/Generated:rw" \
            docker-action "$@"
 
 ls -la /Generated
