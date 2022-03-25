@@ -178,13 +178,16 @@ function main {
     run
 }
 
+echo "Here"
+ls -la
+echo "Root"
+ls -la /
+
 # Removes quotes
 args=$(xargs <<<"$@")
 
 # Arguments as an array
 IFS=' ' read -a args <<< "$args"
-
-ls -la
 
 # Run main
 main "${args[@]}"
