@@ -182,6 +182,7 @@ echo "Here"
 ls -la
 echo "Root"
 ls -la /
+pwd
 
 # Removes quotes
 args=$(xargs <<<"$@")
