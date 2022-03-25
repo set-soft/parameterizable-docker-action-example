@@ -22,6 +22,7 @@ echo "/sys" >> .dockerignore
 echo "/tmp" >> .dockerignore
 
 mkdir /Generated
+mount
 
 # Create a docker image and pass all the arguments
 docker build -t docker-action .

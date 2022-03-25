@@ -185,6 +185,7 @@ ls -la /
 echo "Workspace"
 ls -la /github/workspace
 pwd
+mount
 
 # Removes quotes
 args=$(xargs <<<"$@")
