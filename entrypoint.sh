@@ -77,7 +77,6 @@ docker run --workdir /github/workspace \
            -e ACTIONS_CACHE_URL \
            -e GITHUB_ACTIONS=true \
            -e CI=true \
-           -v "/var/run/docker.sock":"/var/run/docker.sock" \
            -v /Generated:/Generated \
            docker-action "$@"
 
@@ -89,6 +88,7 @@ tar xvf /results.tar
 ls -la
 
 #           --mount type=bind,source=/Generated,target=/Generated,bind-propagation=rshared \
+#           -v "/var/run/docker.sock":"/var/run/docker.sock" \
 #            -v "/github/home":"/github/home" \
 #            -v "/github/workflow":"/github/workflow" \
 #            -v "/github/file_commands":"/github/file_commands" \
