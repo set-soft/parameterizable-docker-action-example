@@ -4,12 +4,12 @@ KICAD_VERSION=$1
 
 echo "Creating docker image with KiCad version: $KICAD_VERSION"
 
-ls -la
+ls -la /
 
 if [ "$KICAD_VERSION" == "5" ]; then
-   cd k5
+   cd /k5
 else
-   cd k6
+   cd /k6
 fi
 
 # here we can make the construction of the image as customizable as we need
