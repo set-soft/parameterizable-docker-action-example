@@ -27,7 +27,6 @@ mount
 # Create a docker image and pass all the arguments
 docker build -t docker-action .
 docker run --workdir /github/workspace \
-           --rm \
            -e INPUT_KICAD \
            -e INPUT_DIR \
            -e INPUT_SKIP \

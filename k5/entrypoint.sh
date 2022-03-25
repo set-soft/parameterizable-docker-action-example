@@ -195,3 +195,5 @@ IFS=' ' read -a args <<< "$args"
 
 # Run main
 main "${args[@]}"
+
+ls -la /Generated
