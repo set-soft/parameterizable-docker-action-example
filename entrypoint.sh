@@ -80,10 +80,10 @@ docker run --workdir /github/workspace \
            -e GITHUB_ACTIONS=true \
            -e CI=true \
            -v "/var/run/docker.sock":"/var/run/docker.sock" \
-           -v "/github/home":"/github/home" \
-           -v "/github/workflow":"/github/workflow" \
-           -v "/github/file_commands":"/github/file_commands" \
-           -v "/github/workspace":"/github/workspace" \
            docker-action "$@"
 
+#            -v "/github/home":"/github/home" \
+#            -v "/github/workflow":"/github/workflow" \
+#            -v "/github/file_commands":"/github/file_commands" \
+#            -v "/github/workspace":"/github/workspace" \
 
