@@ -8,6 +8,7 @@ KICAD_VERSION=$1
 echo "Creating docker image with KiCad version: $KICAD_VERSION"
 
 ls -la
+pwd
 
 # Select the correct Dockerfile
 if [ "$KICAD_VERSION" == "-k 5" ]; then
