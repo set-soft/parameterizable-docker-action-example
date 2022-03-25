@@ -15,5 +15,6 @@ COPY entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 
 COPY /github /github
+RUN mkdir /Generated
 
 ENTRYPOINT [ "/entrypoint.sh" ]

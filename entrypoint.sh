@@ -22,6 +22,7 @@ echo "/sys" >> .dockerignore
 echo "/tmp" >> .dockerignore
 
 mkdir /Generated
+ls -la /
 mount
 
 # Create a docker image and pass all the arguments
