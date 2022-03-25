@@ -1,10 +1,44 @@
 # action.yml
-name: 'Print customizable alpine version'
-description: 'print alpine version'
+name: 'KiBot'
+description: 'auto generate exports (schematics, gerbers, plots) for any KiCad project.'
+author: 'Salvador E. Tropea'
 inputs:
-  alpine-version:
-    description: 'alpine version'
-    required: true
+  config:
+    description: 'The plotting config file to use'
+    required: false
+    default: '__SCAN__'
+  dir:
+    description: 'The output directory [default: .]'
+    required: false
+    default: '.'
+  board:
+    description: 'The PCB .kicad-pcb board file [default: first *.kicad_pcb found]'
+    required: false
+    default: '__SCAN__'
+  schema:
+    description: 'The schematic file (.sch) [default: first *.*sch found]'
+    required: false
+    default: '__SCAN__'
+  skip:
+    description: 'Skip preflights, comma separated or "all" [default: no skip]'
+    required: false
+    default: '__NONE__'
+  targets:
+    description: 'List of targets to generate separated by spaces. To only run preflights use __NONE__  [default: generate all]'
+    required: false
+    default: '__ALL__'
+  variant:
+    description: 'Global variant to use [default: no variants]'
+    required: false
+    default: '__NONE__'
+  verbose:
+    description: 'Verbosity level [default: 0]'
+    required: false
+    default: '0'
+  kicad:
+    description: 'KiCad major version (5 or 6) [default: 6]'
+    required: false
+    default: 6
 outputs:
   version:
     description: 'alpine version that is running now'
@@ -12,4 +46,12 @@ runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-    - ${{ inputs.alpine-version }}
+    -  ${{ inputs.kicad }}
+    -  ${{ inputs.config }}
+    -  ${{ inputs.dir }}
+    -  ${{ inputs.board }}
+    -  ${{ inputs.schema }}
+    -  ${{ inputs.skip }}
+    -  ${{ inputs.targets }}
+    -  ${{ inputs.verbose }}
+    -  ${{ inputs.variant }}

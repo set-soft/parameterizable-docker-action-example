@@ -1,12 +1,17 @@
 #!/bin/sh -l
 
-ALPINE_VERSION=$1
+KICAD_VERSION=$1
 
-cd /docker-action
-echo "creating docker image with alpine version: $ALPINE_VERSION"
+echo "Creating docker image with alpine version: $KICAD_VERSION"
+
+if [ "$KICAD_VERSION" == "5" ]; then
+   cd k5
+else
+   cd k6
+fi
 
 # here we can make the construction of the image as customizable as we need
 # and if we need parameterizable values it is a matter of sending them as inputs
-docker build -t docker-action --build-arg alpine_version="$ALPINE_VERSION" . && docker run docker-action
+docker build -t docker-action . && docker run docker-action "$@"
 
 
