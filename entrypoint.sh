@@ -16,6 +16,9 @@ if [ "$KICAD_VERSION" == "-k 5" ]; then
 else
    cd /k6
 fi
+cp Dockerfile /
+cp entrypoint.sh /
+cd /
 
 ls -la /
 pwd
