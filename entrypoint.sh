@@ -77,7 +77,7 @@ docker run --workdir /github/workspace \
            -e GITHUB_ACTIONS=true \
            -e CI=true \
            -v "/var/run/docker.sock":"/var/run/docker.sock" \
-           -v "/Generated":"/Generated" \
+           --mount type=bind,source=/Generated,target=/Generated,bind-propagation=rshared \
            docker-action "$@"
 
 ls -la /Generated
