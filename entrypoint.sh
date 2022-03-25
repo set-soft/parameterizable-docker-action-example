@@ -7,9 +7,6 @@ KICAD_VERSION=$1
 
 echo "Creating docker image with KiCad version: $KICAD_VERSION"
 
-ls -la
-pwd
-
 # Select the correct Dockerfile
 if [ "$KICAD_VERSION" == "-k 5" ]; then
    cd /k5
@@ -19,12 +16,12 @@ fi
 cp Dockerfile /
 cp entrypoint.sh /
 cd /
+
 echo "/proc" > .dockerignore
 echo "/sys" >> .dockerignore
 echo "/tmp" >> .dockerignore
 
-ls -la /
-pwd
+mkdir /Generated
 
 # Create a docker image and pass all the arguments
 docker build -t docker-action .
@@ -80,7 +77,15 @@ docker run --workdir /github/workspace \
            -e GITHUB_ACTIONS=true \
            -e CI=true \
            -v "/var/run/docker.sock":"/var/run/docker.sock" \
+           -v "/Generated":"/Generated" \
            docker-action "$@"
+
+ls -la /Generated
+cd /Generated
+tar cvf /results.tar
+cd /github/workspace
+tar xvf /results.tar
+ls -la
 
 #            -v "/github/home":"/github/home" \
 #            -v "/github/workflow":"/github/workflow" \

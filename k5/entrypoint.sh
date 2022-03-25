@@ -124,7 +124,7 @@ function args_process {
                fi
                ;;
            -d | --dir) shift
-               DIR="-d $1"
+               DIR="-d /Generated/$1"
                ;;
            -k | --kicad) shift
                # Just to discard it
