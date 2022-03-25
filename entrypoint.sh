@@ -19,6 +19,9 @@ fi
 cp Dockerfile /
 cp entrypoint.sh /
 cd /
+echo "/proc" > .dockerignore
+echo "/sys" >> .dockerignore
+echo "/tmp" >> .dockerignore
 
 ls -la /
 pwd
