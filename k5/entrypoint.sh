@@ -182,6 +182,8 @@ echo "Here"
 ls -la
 echo "Root"
 ls -la /
+echo "Workspace"
+ls -la /github/workspace
 pwd
 
 # Removes quotes
