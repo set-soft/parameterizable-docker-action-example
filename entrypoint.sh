@@ -1,6 +1,6 @@
 #!/bin/sh -l
 
-KICAD_VERSION=$1
+KICAD_VERSION=$2
 
 echo "Creating docker image with KiCad version: $KICAD_VERSION"
 

@@ -11,6 +11,7 @@ SKIP=""
 DIR=""
 VARIANT=""
 TARGETS=""
+KICAD=""
 
 # Exit error code
 EXIT_ERROR=1
@@ -20,7 +21,7 @@ function msg_example {
 }
 
 function msg_usage {
-    echo -e "usage: $SCRIPT [OPTIONS]... -c <yaml-config-file>"
+    echo -e "usage: $SCRIPT [OPTIONS]"
 }
 
 function msg_disclaimer {
@@ -124,6 +125,10 @@ function args_process {
                ;;
            -d | --dir) shift
                DIR="-d $1"
+               ;;
+           -k | --kicad) shift
+               # Just to discard it
+               KICAD="$1"
                ;;
            -s | --skip) shift
                if [ "$1" == "__NONE__" ]; then
